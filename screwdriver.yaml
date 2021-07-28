@@ -1,0 +1,14 @@
+annotations:
+  screwdriver.cd/chainPR: true
+
+shared:
+    image: node:14
+jobs:
+    SIMPLE:
+        steps:
+            - echo: echo test
+        requires: [~pr, ~commit]
+    AFTER-SIMPLE:
+        steps:
+            - echo: echo test
+        requires: [SIMPLE]
